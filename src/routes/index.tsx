@@ -1,5 +1,6 @@
-import React, { lazy } from "react"
-import type { RouteObject } from "react-router"
+import React, { lazy } from "react";
+import type { RouteObject } from "react-router";
+import { Home } from "~/pages";
 
 /** Lazy loading component */
 export const createComponent = (loader: () => Promise<{ default: React.ComponentType<unknown> }>) => {
@@ -10,8 +11,7 @@ export const createComponent = (loader: () => Promise<{ default: React.Component
 const routes: RouteObject[] = [
   {
     path: '/',
-    // Component: () => <div>你好</div>
-    element: <div>hello,world!</div>,
+    Component: Home,
     loader: () => null
   }
 ]

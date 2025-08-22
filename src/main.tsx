@@ -15,7 +15,7 @@ const theme: ConfigProviderProps["theme"] = {
 /** 主题定制 */
 export const ThemeProvider = () => {
   return (
-    <ConfigProvider locale={zhCN} theme={theme} >
+    <ConfigProvider locale={zhCN} theme={theme} componentSize="middle">
       {/* 提供重置样式和提供上下文消费环境 */}
       <App>
         <RootApp />

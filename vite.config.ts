@@ -4,7 +4,7 @@ import { resolve } from "path";
 import { defineConfig } from 'vite';
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),tailwindcss()],
+  plugins: [react(), tailwindcss()],
   server: {
     port: 9527
   },
@@ -15,7 +15,7 @@ export default defineConfig({
       // 将 ~ 映射到项目的src目录
       // __dirname 表示当前配置文件所在目录
       // resolve() 函数将相对路径解析为绝对路径
-      '~/*': resolve(__dirname, 'src'),
+      '~': resolve(__dirname, './src'),
       '@components': resolve(__dirname, 'src/components'),
       '@utils': resolve(__dirname, 'src/utils')
     }
