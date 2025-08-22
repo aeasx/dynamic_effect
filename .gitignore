@@ -13,8 +13,8 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
-!.vscode/extensions.json
+# 排除 VSCode 编辑器 的配置文件目录 
+.vscode
 .idea
 .DS_Store
 *.suo
