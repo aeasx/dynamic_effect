@@ -6,8 +6,8 @@ interface I_HomeProps {
 const Home: FC<I_HomeProps> = () => {
   return (
     <div>
-      <div className="w-[200px] h-[200px] bg-red-500/40">
-        Home Page
+      <div className="w-[200px] h-[200px]">
+        Page update<br />
       </div>
     </div>
   )
