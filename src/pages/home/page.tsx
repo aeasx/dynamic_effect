@@ -5,7 +5,6 @@ interface I_HomeProps {
   children?: ReactNode
 }
 
-
 const Home: FC<I_HomeProps> = () => {
   return (
     <>
