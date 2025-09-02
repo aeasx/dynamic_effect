@@ -8,7 +8,7 @@ interface I_HomeProps {
 const Home: FC<I_HomeProps> = () => {
   return (
     <>
-      <div className="w-screen h-full bg-orange-200/10">
+      <div className="w-screen h-full bg-orange-200/20">
         <h1>Home Page</h1>
         <MyGridTable />
       </div>
