@@ -3,7 +3,7 @@ import { Outlet } from "react-router";
 export const RootLayout = () => {
   return (
     <>
-      <div className="w-screen h-[100px] bg-amber-400/30">
+      <div className="w-screen h-[100px] flex-center">
         RootLayout
       </div>
       {/* 插槽 */}

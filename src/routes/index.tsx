@@ -9,7 +9,6 @@ export const createComponent = (loader: () => Promise<{ default: React.Component
   return lazy(loader)
 }
 
-
 const routes: RouteObject[] = [
   {
     path: '/',
@@ -47,4 +46,4 @@ const routes: RouteObject[] = [
   }
 ]
 
-export default routes
+export default routes;

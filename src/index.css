@@ -2,7 +2,9 @@
 @import "./styles/font.css";
 
 @theme {
-  --default-font-family: "Inter"
+  --default-font-family: "Inter";
+  --text-base: 32px;
+  --radius-my: 9999px;
 }
 
 @utility flex-center {
@@ -135,5 +137,16 @@
 
   body {
     @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+/* nested css */
+.typography {
+  p {
+    font-size: var(--text-base),
+  }
+
+  img {
+    border-radius: var(--radius-my);
   }
 }
