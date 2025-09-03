@@ -1,3 +1,4 @@
+export { Gallery } from '@components/Gallery/Gallery'
 export { MyGridTable } from '@components/MyTable/MyGridTable'
 export { RootLayout } from '@components/RootLayout/Layout'
 export { TeaGathering } from '@components/TeaGathering/TeaGathering'
