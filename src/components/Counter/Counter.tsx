@@ -23,3 +23,24 @@ export const Counter = () => {
     </>
   )
 }
+
+export const Counter02 = () => {
+  const [number, setNumber] = useState(0)
+  return (
+    <div>
+      <h1>{number}</h1>
+      <Button
+        onClick={() => {
+          setNumber(number + 5)
+          // 到提示框运行时，React中存储的 `state` 可能已经发生了更改,
+          // 但它是使用用户与之交互时的状态的快照及逆行调度的！
+          // 所以定时器里面的alert的值还是0
+          setTimeout(() => {
+            alert(number)
+          }, 2000)
+        }}>
+        +5
+      </Button>
+    </div>
+  )
+}
