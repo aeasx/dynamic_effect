@@ -2,14 +2,12 @@ import { Button } from "antd"
 import { useState } from "react"
 
 export const Gallery = () => {
-  // useState Hook 提供了2个功能
-  // 1.State 变量保存渲染之间的数据
-  // 2.State setter函数 for update variant and render component again
-  // 将它们视为组件需求的无条件声明
-  const [index, setIndex] = useState(0)//告诉react记住something
-  // 每次组件渲染时，useState会给你一个包含两个值的数据
-  // 1.state变量 会保存上一次渲染的值
-  // 2.state setter函数可以更新state变量并触发React render component again
+  //告诉react记住something
+  const [index, setIndex] = useState(0)
+  const [showMore, setShowMore] = useState(false)
+  const handleShowMore = () => {
+    setShowMore(!showMore)
+  }
   const handleNext = () => {
     setIndex(() => (index + 1) % sculptureList.length)
   }
@@ -24,7 +22,8 @@ export const Gallery = () => {
       </h2>
       <h3>({index + 1} of {sculptureList.length})</h3>
       <img src={sculpture.url} alt={sculpture.alt} className="w-[200px] h-[300px] object-fill" />
-      <p>{sculpture.description}</p>
+      <Button onClick={handleShowMore}>{showMore ? 'Hide' : 'Show'} more details</Button>
+      {showMore && <p>{sculpture.description}</p>}
     </>
   )
 }
