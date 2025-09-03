@@ -1,5 +1,5 @@
-import { type FC, type ReactNode } from "react";
-import { MyGridTable } from '~/components'
+import { type FC, type ReactNode } from "react"
+import { ToolBar, UITree } from '~/components'
 
 interface I_HomeProps {
   children?: ReactNode
@@ -10,10 +10,11 @@ const Home: FC<I_HomeProps> = () => {
     <>
       <div className="w-screen h-full bg-orange-200/20">
         <h1>Home Page</h1>
-        <MyGridTable />
+        <ToolBar />
+        <UITree />
       </div>
     </>
   )
-};
+}
 
-export default Home;
+export default Home
