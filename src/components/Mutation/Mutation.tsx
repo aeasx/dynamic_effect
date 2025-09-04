@@ -1,4 +1,5 @@
-import { useState, type PointerEventHandler } from "react"
+import { Input } from "antd"
+import { useState, type ChangeEvent, type PointerEventHandler } from "react"
 
 export const Mutation = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -28,6 +29,74 @@ export const Mutation = () => {
           }}
         ></div>
       </div>
+    </>
+  )
+}
+
+export const MutationForm = () => {
+  const [person, setPerson] = useState({
+    firstName: 'Barbara',
+    lastName: 'Hepworth',
+    email: 'bhepworth@sculpture.com'
+  })
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.name, e.target.value)
+    setPerson({
+      ...person,
+      // 这里用到了ES6中的属性名表达式
+      [e.target.name]: e.target.value
+    })
+    // explanation:JS定义对象的属性有2中方法
+    // 1.直接使用标识符作为属性名 obj.a=1
+    // 2.使用表达式作为属性名，这时表达式要放在方括号内 obj['a'+'bc']=3
+  }
+  // ES6中允许字面量定义对象时，用表达式作为对象的属性名，即把表达式放在方括号内
+  const propKey = 'foo'
+  const obj = {
+    [propKey]: true,
+    ['a' + 'bc']: 123
+  }
+  console.log("🚀 ~ MutationForm ~ obj:", obj)
+  return (
+    <>
+      <label>
+        First name:
+        <Input
+          name="firstName"
+          style={{ maxWidth: 200 }}
+          allowClear
+          className="outline-1 rounded"
+          value={person.firstName}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Last name:
+        <Input
+          name="lastName"
+          style={{ maxWidth: 200 }}
+          allowClear
+          className="outline-1 rounded"
+          value={person.lastName}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
+        Email:
+        <Input
+          name="email"
+          style={{ maxWidth: 200 }}
+          allowClear
+          className="outline-1 rounded"
+          value={person.email}
+          onChange={handleChange}
+        />
+      </label>
+      <p>
+        {person.firstName}{' '}
+        {person.lastName}{' '}
+        ({person.email})
+      </p>
     </>
   )
 }
