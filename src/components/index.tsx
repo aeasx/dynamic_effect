@@ -15,3 +15,4 @@ export { Mutation, MutationForm, NestedObjCard } from '@components/Mutation/Muta
 export { ArrayRelactive } from '@components/ArrayRelative/ArrayRelactive'
 export { ShapeEditor } from '@components/ArrayRelative/ShapeEditor'
 export { CounterList } from '@components/ArrayRelative/CounterList'
+export { InsertList } from '@components/ArrayRelative/InsertList'
