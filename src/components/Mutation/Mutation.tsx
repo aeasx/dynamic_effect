@@ -1,6 +1,6 @@
 import { Input } from "antd"
-import { useState, type ChangeEvent, type PointerEventHandler } from "react"
-
+import { useState, type ChangeEvent, type ChangeEventHandler, type PointerEventHandler } from "react"
+import { produce } from "immer"
 export const Mutation = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
@@ -97,6 +97,110 @@ export const MutationForm = () => {
         {person.lastName}{' '}
         ({person.email})
       </p>
+    </>
+  )
+}
+
+export const NestedObjCard = () => {
+  const [person, setPerson] = useState({
+    name: 'Niki de Saint Phalle',
+    artwork: {
+      title: 'Blue Nana',
+      city: 'Hamburg',
+      image: 'https://i.imgur.com/Sd1AgUOm.jpg',
+    }
+  })
+  const handleNameChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const nextState = produce(person, draft => {
+      draft.name = e.target.value
+    })
+    setPerson(nextState)
+  }
+  const handleTitleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    // setPerson({
+    //   ...person,// 复制其它字段数据
+    //   artwork: {// 替换 artwork 字段
+    //     ...person.artwork,// 复制之前 person.artwork 中的数据
+    //     title: e.target.value// 但是将 title 替换为 newData
+    //   }
+    // })
+    // => immer
+    const nextState = produce(person, draft => {
+      draft.artwork.title = e.target.value
+    })
+    setPerson(nextState)
+  }
+  const handleCityChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    // setPerson({
+    //   ...person,
+    //   artwork: {
+    //     ...person.artwork,
+    //     city: e.target.value
+    //   }
+    // })
+    const nextState = produce(person, draft => {
+      draft.artwork.city = e.target.value
+    })
+    setPerson(nextState)
+  }
+  const handleImageChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    // setPerson({
+    //   ...person,
+    //   artwork: {
+    //     ...person.artwork,
+    //     image: e.target.value
+    //   }
+    // })
+    const nextState = produce(person, draft => {
+      draft.artwork.image = e.target.value
+    })
+    setPerson(nextState)
+  }
+  return (
+    <>
+      <label>
+        Name:
+        <input
+          className="outline-1 border border-red-300 rounded"
+          value={person.name}
+          onChange={handleNameChange}
+        />
+      </label>
+      <label>
+        Title:
+        <input
+          className="outline-1 border border-red-300 rounded"
+          value={person.artwork.title}
+          onChange={handleTitleChange}
+        />
+      </label>
+      <label>
+        City:
+        <input
+          className="outline-1 border border-red-300 rounded"
+          value={person.artwork.city}
+          onChange={handleCityChange}
+        />
+      </label>
+      <label>
+        Image:
+        <input
+          className="outline-1 border border-red-300 rounded"
+          value={person.artwork.image}
+          onChange={handleImageChange}
+        />
+      </label>
+      <p>
+        <i>{person.artwork.title}</i>
+        {' by '}
+        {person.name}
+        <br />
+        (located in {person.artwork.city})
+      </p>
+      <img
+        src={person.artwork.image}
+        alt={person.artwork.title}
+      />
     </>
   )
 }
