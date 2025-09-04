@@ -49,7 +49,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* 自定以变体 */
+/* 自定义变体 */
 @custom-variant dark (&:where(.dark, .dark *));
 
 ::selection {

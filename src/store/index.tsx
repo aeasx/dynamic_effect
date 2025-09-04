@@ -1,6 +1,6 @@
-import type { CSSProperties } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { proxy } from "valtio";
+import type { CSSProperties } from "react"
+import { v4 as uuidv4 } from "uuid"
+import { proxy } from "valtio"
 
 const users: I_UserProps[] = [
   {

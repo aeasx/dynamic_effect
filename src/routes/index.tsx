@@ -1,8 +1,8 @@
-import { RootLayout } from "@components/index";
-import { Button, Result, Spin } from "antd";
-import { lazy } from "react";
-import type { RouteObject } from "react-router";
-import { Home } from "~/pages";
+import { RootLayout } from "@components/index"
+import { Button, Result, Spin } from "antd"
+import { lazy } from "react"
+import type { RouteObject } from "react-router"
+import { Home } from "~/pages"
 /** Lazy loading component */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const createComponent = (loader: () => Promise<{ default: React.ComponentType<any> }>) => {
@@ -46,4 +46,4 @@ const routes: RouteObject[] = [
   }
 ]
 
-export default routes;
+export default routes
