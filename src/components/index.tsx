@@ -1,4 +1,4 @@
-export { Counter, Counter02 } from '@components/Counter/Counter'
+export { Counter, Counter02, Counter03 } from '@components/Counter/Counter'
 export { Gallery } from '@components/Gallery/Gallery'
 export { MyGridTable } from '@components/MyTable/MyGridTable'
 export { RootLayout } from '@components/RootLayout/Layout'
