@@ -9,12 +9,20 @@ export const ArrayTodos = () => {
   // 在React中，将setState作为属性直接传递给子组件是一种常见且合理的做法。这是实现状态
   // 提升的标准模式
   return (
-    <ListCard list={defaultList} />
+    <ListCard />
   )
 }
 
-const ListCard: FC<I_ListCardProps> = ({ list, children }) => {
-  const [newList, setNewList] = useState(list)
+const ListCard: FC<I_ListCardProps> = ({ children }) => {
+  // 这里有一个问题 不能在state中镜像props
+  // 这里一个 `newList` state变量被初始化为list的prop值。这段代码的问题在于
+  // 如果父组件稍后传递不同的 list ，则state变量不会更新
+  // state仅在第一次渲染期间初始化
+  // 这就是why在state变量中 “镜像”一些prop属性会导致混淆的原因。
+  // 相反,我要在代码中直接使用 list 属性。
+  // 如果想给它一个更简短的名称，使用常量
+
+  const [newList, setNewList] = useState(defaultList)
 
   const handleMoveUp = (k: string) => {
     const idx = newList.findIndex(f => f.key === k)
@@ -77,7 +85,6 @@ const ListCard: FC<I_ListCardProps> = ({ list, children }) => {
 
 interface I_ListCardProps {
   children?: ReactNode,
-  list: I_ListItem,
 }
 
 type I_ListItem = typeof defaultList
