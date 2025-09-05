@@ -9,41 +9,44 @@ interface Item {
 const initialItems: Item[] = [
   { title: 'pretzels', id: 0 },
   { title: 'crispy seaweed', id: 1 },
-  { title: 'granola bar', id: 2 },
+  { title: 'granola bar', id: 2 }
 ]
 
-export function Menu() {
-  const [items, setItems] = useState<Item[]>(initialItems)
+export const Menu = () => {
+  const [menu, setMenu] = useState(initialItems)
   const [selectedId, setSelectedId] = useState(0)
-  const selectedItem = items.find(f => f.id === selectedId)!
+  // 对于选择类型的UI模式，在 state中保存ID或索引而不是对象本身
+  const selectedItem = menu.find(f => f.id === selectedId)
 
-  function handleItemChange(id: number, e: ChangeEvent<HTMLInputElement>) {
-    setItems(items.map(item => {
-      if (item.id === id) {
-        return {
-          ...item,
-          title: e.target.value,
-        }
+  const handleChange = (e: ChangeEvent<HTMLInputElement>, id: number) => {
+    setMenu(menu.map(m => {
+      if (m.id === id) {
+        return { ...m, title: e.target.value }
       } else {
-        return item
+        return m
       }
     }))
   }
 
   return (
-    <>
+    <div>
       <h2>What's your travel snack?</h2>
       <ul>
-        {items.map(item => (
-          <li key={item.id}>
-            <Input style={{ maxWidth: 140 }} value={item.title} allowClear onChange={e => handleItemChange(item.id, e)}></Input>
-            {item.title}
-            {' '}
-            <Button type='primary' onClick={() => setSelectedId(item.id)}>Choose</Button>
-          </li>
-        ))}
+        {
+          menu.map(item => (
+            <li key={item.id}>
+              <label>
+                <Input style={{ maxWidth: 150 }} name='menu' value={item.title}
+                  onChange={e => { handleChange(e, item.id) }}
+                >
+                </Input>
+                <Button onClick={() => setSelectedId(item.id)}>choose</Button>
+              </label>
+            </li>
+          ))
+        }
       </ul>
-      <p>You picked {selectedItem.title}.</p>
-    </>
+      <h1>You picked {selectedItem?.title}</h1>
+    </div>
   )
 }
