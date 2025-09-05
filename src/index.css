@@ -139,14 +139,3 @@
     @apply bg-background text-foreground overflow-x-hidden;
   }
 }
-
-/* nested css */
-.typography {
-  p {
-    font-size: var(--text-base),
-  }
-
-  img {
-    border-radius: var(--radius-my);
-  }
-}
