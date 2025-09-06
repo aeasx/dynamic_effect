@@ -3,6 +3,15 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- no-cache: 强制浏览器在使用缓存前先验证资源是否更新  -->
+  <!-- no-store: 禁止浏览器存储页面的任何缓存副本 -->
+  <!-- must-revalidate：强制浏览器在每次访问时都验证资源的有效性 -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <!-- 兼容老版本 HTTP/1.0 的缓存控制指令 -->
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- 设置Browser地址栏和状态栏背景色 -->
+  <meta name="theme-color" content="#fff" />
   <link rel="icon" type="image/svg+xml" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dynamic Effect</title>

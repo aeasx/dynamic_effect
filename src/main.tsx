@@ -8,7 +8,7 @@ import { GlobalError, TanstackQueryClient } from '~/components'
 
 const theme: ConfigProviderProps['theme'] = {
   token: {
-    fontSize: 12,
+    fontSize: 16,
     colorTextQuaternary: '#333'
   }
 }

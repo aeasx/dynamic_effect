@@ -1,8 +1,9 @@
-import type { FC } from "react"
+import { ErrorView } from "~/components"
 
-const Poster: FC = () => {
+function Poster() {
   return (
-    <div>Poster Page</div>
+    <ErrorView />
   )
 }
+
 export default Poster

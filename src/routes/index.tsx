@@ -1,4 +1,4 @@
-import { RootLayout } from "@components/index"
+import { ErrorView, RootLayout } from "@components/index"
 import { Button, Result, Spin } from "antd"
 import { lazy } from "react"
 import type { RouteObject } from "react-router"
@@ -15,6 +15,7 @@ const routes: RouteObject[] = [
     Component: RootLayout,
     handle: { title: 'Root' },
     HydrateFallback: () => <Spin fullscreen />,
+    errorElement: <ErrorView />,
     children: [
       {
         index: true,
@@ -42,7 +43,7 @@ const routes: RouteObject[] = [
     // 为该路由设置的元数据
     handle: {
       title: '404',
-    },
+    }
   }
 ]
 

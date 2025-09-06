@@ -1,0 +1,6 @@
+:where(.css-dev-only-do-not-override-10a8o7j).ant-app {
+  color: var(--foreground);
+  font-size: var(--text-base);
+  line-height: var(--leading-base);
+  font-family: var(--default-font-family) !important;
+}
